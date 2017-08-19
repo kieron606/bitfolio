@@ -1,0 +1,33 @@
+.addHoldings {
+	margin-bottom: 20px;
+}
+
+.addHoldings .form-group {
+	margin-right: 10px;
+}
+
+.addHoldings .form-group input[type=text] {
+	width: auto;
+}
+
+.remove:hover {
+	opacity: 0.8;
+	cursor: pointer;
+}
+
+.row {
+	margin-top: 20px;
+}
+
+.addNewForm {
+	margin-top: 15px;
+	margin-left: 10px;
+}
+
+.ml-md-auto {
+	margin-right: 20px;
+}
+
+.card {
+	margin-top: 20px;
+}

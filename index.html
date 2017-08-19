@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  rel="stylesheet">  
+</head>
+<body>
+<div class="container">
+  <div class="card">
+    <form class="addNewForm">
+      <div class="form-row">
+        <div class="form-group col-md-3">
+          <input type="text" class="form-control" placeholder="Enter currency tag e.g (BTC, ETH)">
+        </div>
+        <div class="form-group col-md-3">
+          <input type="text" class="form-control" placeholder="Enter a title for the card">
+        </div>
+        <div class="form-group col-md-3">
+          <select name="" class="form-control">
+            <option value="">USD</option>
+            <option value="">GBP</option>
+            <option value="">AUS</option>
+          </select>        
+        </div>
+        <div class="form-group ml-md-auto">
+          <input type="submit" class="btn btn-default addNewCurrency">
+        </div>
+      </div>
+    </form>    
+  </div> 
+  <div class="row currenciesRow">
+    <div class="col">
+      <div class="card cardForADX" id="ADX">
+        <div class="card-body">
+          <h3 class="float-md-right"><span class="badge badge-secondary profitLoss"></span></h3>
+          <h4 class="card-title"><span class="currencyTag">ADX</span> (AdEx)</h4>
+          <!-- <p class="card-text">Holdings: <input value="45" class="holdings"/><input value="0.00034690" class="rate"></p> -->
+          <p class="card-text">Market Value (GBP): &pound;<span class="marketValue"></span></p>
+          <p class="card-text">Net Cost (GBP): &pound;<span class="netCost"></span></p>
+
+          <div class="addHoldings">
+            <form>
+              <div class="form-row">
+                <div class="form-group">
+                  <input name="holdings" type="text" class="form-control holdings" placeholder="Enter your holdings" onkeypress="return isNumberKey(event)">
+                </div>
+                <div class="form-group">
+                  <input name="rate" type="text" class="form-control rate" placeholder="Enter the rate" onkeypress="return isNumberKey(event)">
+                </div>
+                <div class="form-group">
+                  <input type="submit" class="btn btn-primary addHolding" value="Add">
+                </div>                
+              </div>
+            </form>
+          </div>
+
+          <table class="table tablesorter">
+            <thead>
+              <tr>
+                <th>Holdings</th>
+                <th>Rate</th>
+                <th>Current BTC Cost (&pound;)</th>
+                <th>Remove</th>
+              </tr>
+            </thead>
+            <tbody class="exchangesTable">
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>  
+    <div class="col">
+      <div class="card cardForSIGT" id="SIGT">
+        <div class="card-body">
+          <h3 class="float-md-right"><span class="badge badge-secondary profitLoss"></span></h3>
+          <h4 class="card-title"><span class="currencyTag">SIGT</span> (Signatum)</h4>
+          <!-- <p class="card-text">Holdings: <input value="45" class="holdings"/><input value="0.00034690" class="rate"></p> -->
+          <p class="card-text">Market Value (GBP): &pound;<span class="marketValue"></span></p>
+          <p class="card-text">Net Cost (GBP): &pound;<span class="netCost"></span></p>
+
+          <div class="addHoldings">
+            <form>
+              <div class="form-row">
+                <div class="form-group">
+                  <input name="holdings" type="text" class="form-control holdings" placeholder="Enter your holdings" onkeypress="return isNumberKey(event)">
+                </div>
+                <div class="form-group">
+                  <input name="rate" type="text" class="form-control rate" placeholder="Enter the rate" onkeypress="return isNumberKey(event)">
+                </div>
+                <div class="form-group">
+                  <input type="submit" class="btn btn-primary addHolding" value="Add">
+                </div>                
+              </div>
+            </form>
+          </div>
+
+          <table class="table tablesorter">
+            <thead>
+              <tr>
+                <th>Holdings</th>
+                <th>Rate</th>
+                <th>Current BTC Cost (&pound;)</th>
+                <th>Remove</th>
+              </tr>
+            </thead>
+            <tbody class="exchangesTable">
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>      
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.tablesorter.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script>
+$(function(){
+  $(".table").tablesorter();
+});		
+
+function isNumberKey(evt)
+{
+  var charCode = (evt.which) ? evt.which : evt.keyCode;
+  if (charCode != 46 && charCode > 31 
+    && (charCode < 48 || charCode > 57))
+      return false;
+
+  return true;
+}
+</script>
+</body>
+</html>
