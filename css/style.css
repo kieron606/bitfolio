@@ -31,3 +31,9 @@
 .card {
 	margin-top: 20px;
 }
+
+.autocomplete-suggestions { border: 1px solid #999; background: #fff; cursor: default; overflow: auto; border-radius: 3px; }
+.autocomplete-suggestion { padding: 2px 5px; font-size: 1.0em; white-space: nowrap; overflow: hidden; }
+.autocomplete-selected { background: #f0f0f0; }
+.autocomplete-suggestions strong { font-weight: normal; color: #3399ff; }
+#searchfield { display: block; width: 100%; text-align: center; margin-bottom: 35px; }

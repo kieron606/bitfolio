@@ -1,6 +1,75 @@
+const cryptocurrencies = require('cryptocurrencies');
+
 $(document).ready(function(e){
 	loadUsersHoldings('ADX');
 	getCurrencyInfo();
+
+	// var ajax = new XMLHttpRequest();
+	// ajax.open("GET", "https://min-api.cryptocompare.com/data/all/coinlist", true);
+	// ajax.onload = function() {
+	// 	
+	// 	console.log(data);
+		
+		
+	// };
+	// ajax.send();
+
+	$.ajax({
+		url: "https://min-api.cryptocompare.com/data/all/coinlist",
+		//beforeSend: function(xhr){xhr.setRequestHeader('X-CoinAPI-Key', 'FB6286AF-4265-408C-96EB-DEA9C24BFF85');},
+		type:"GET",
+		dataType: 'json',
+		success: function(data) {
+			var Coins = data.Data;
+			console.log(Coins);
+			var list = Coins.map(function(i) { return i.Name; });
+			new Awesomplete(document.querySelector("#autocomplete"),{ list: list });
+		},
+	});
+
+	var currencies = [
+		{ value: 'Afghan afghani', data: 'AFN' },
+		{ value: 'Albanian lek', data: 'ALL' },
+		{ value: 'Algerian dinar', data: 'DZD' },
+		{ value: 'European euro', data: 'EUR' },
+		{ value: 'Angolan kwanza', data: 'AOA' },
+		{ value: 'East Caribbean dollar', data: 'XCD' },
+		{ value: 'Vietnamese dong', data: 'VND' },
+		{ value: 'Yemeni rial', data: 'YER' },
+		{ value: 'Zambian kwacha', data: 'ZMK' },
+		{ value: 'Zimbabwean dollar', data: 'ZWD' },
+	  ];
+
+	// $('#autocomplete').autocomplete({
+	// 	lookup: cryptocurrencies.symbols(),
+	// 	onSelect: function(suggestion){
+
+	// 	}
+	// });
+	// $("#autocomplete").autocomplete({
+	// 	source: function (request, response) {
+	// 		$.ajax({
+	// 			url: "https://min-api.cryptocompare.com/data/all/coinlist",
+	// 			//beforeSend: function(xhr){xhr.setRequestHeader('X-CoinAPI-Key', 'FB6286AF-4265-408C-96EB-DEA9C24BFF85');},
+	// 			type:"GET",
+	// 			dataType: 'json',
+	// 			success: function(data) {
+	// 				response($.map(data, function(v,i){
+	// 					return {
+	// 								label: v.Data.CoinName,
+	// 								value: v.Data.Name
+	// 							   };
+	// 				}));
+	// 			}, 
+	// 			complete: function(data) {
+	// 				console.log(data);
+	// 			},
+	// 			error: function(data) {
+	// 				console.log(data);
+	// 			}
+	// 		});
+	// 	}
+	// });	
 });
 
 function getCurrencyInfo() {
